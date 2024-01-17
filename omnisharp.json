@@ -1,0 +1,7 @@
+{
+    "languageserver": {
+        "enableRoslynAnalyzers": true,
+        "roslynExtensions": true,
+        "developmentMode": true
+    }
+}
