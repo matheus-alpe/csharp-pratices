@@ -4,11 +4,19 @@ namespace ConsoleApplication
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello world!");
-            Console.Read();
-            foreach (string key in args)
+            if (args.Length <= 0) return; 
+            IRunnable chapter = SelectChapter(args[0]);
+            chapter.Run();
+        }
+
+        public static IRunnable SelectChapter(string chapter)
+        {
+            switch(chapter)
             {
-                Console.WriteLine(key);
+                case "1":
+                    return new Literals();
+                default:
+                    return new Operators();
             }
         }
     }

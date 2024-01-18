@@ -1,5 +1,7 @@
+CHAPTER=1
+export CHAPTER
 run:
-	dotnet run
+	dotnet run $(CHAPTER)
 
 build:
 	dotnet build -c Release
