@@ -1,6 +1,6 @@
 public class Literals : IRunnable
 {
-    public void Run()
+    public void Run<T>(params T[] args)
     {
         uint ui = 5u;
         printWithType(ui);

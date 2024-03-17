@@ -1,6 +1,6 @@
 public class Operators : IRunnable
 {
-    public void Run()
+    public void Run<T>(params T[] args)
     {
         Console.WriteLine("Operators");
 

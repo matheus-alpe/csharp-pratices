@@ -4,20 +4,16 @@ namespace ConsoleApplication
     {
         public static void Main(string[] args)
         {
-            if (args.Length <= 0) return; 
-            IRunnable chapter = SelectChapter(args[0]);
-            chapter.Run();
-        }
+            if (args.Length <= 0) return;
 
-        public static IRunnable SelectChapter(string chapter)
-        {
-            switch(chapter)
+            IRunnable chapter = IRunnable.SelectChapter(args[0]);
+
+            if (args.Length > 1)
             {
-                case "1":
-                    return new Literals();
-                default:
-                    return new Operators();
+                chapter.Run(args[1]);
+                return;
             }
+            chapter.Run<string>();
         }
     }
 }
