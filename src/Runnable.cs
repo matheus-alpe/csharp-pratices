@@ -1,8 +1,8 @@
-public interface IRunnable
+public abstract class Runnable
 {
     public abstract void Run<T>(params T[] args);
 
-    public static IRunnable SelectChapter(string chapter)
+    public static Runnable SelectChapter(string chapter)
     {
         switch (chapter)
         {

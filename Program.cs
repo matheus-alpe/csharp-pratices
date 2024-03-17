@@ -6,7 +6,7 @@ namespace ConsoleApplication
         {
             if (args.Length <= 0) return;
 
-            IRunnable chapter = IRunnable.SelectChapter(args[0]);
+            Runnable chapter = Runnable.SelectChapter(args[0]);
 
             if (args.Length > 1)
             {

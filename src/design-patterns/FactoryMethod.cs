@@ -3,7 +3,7 @@ interface IButton
     public void Click();
 }
 
-interface Dialog
+abstract class Dialog
 {
     public abstract IButton CreateButton();
 
@@ -24,7 +24,7 @@ class WindowsButton : IButton
 
 class WindowsDialog : Dialog
 {
-    public IButton CreateButton()
+    public override IButton CreateButton()
     {
         return new WindowsButton();
     }
@@ -40,20 +40,26 @@ class HTMLButton : IButton
 
 class WebDialog : Dialog
 {
-    public IButton CreateButton()
+    public override IButton CreateButton()
     {
         return new HTMLButton();
     }
 }
 
-public class FactoryMethod : IRunnable
+public class FactoryMethod : Runnable
 {
-    public void Run<T>(params T[] args)
+    public override void Run<T>(params T[] args)
     {
         Console.WriteLine("FactoryMethod");
-        Dialog dialog = args.Length > 0 ? new WebDialog() : new WindowsDialog();
+
+        if (args.Length <= 0 || (args[0] is not String))
+        {
+            Console.WriteLine("Missing arg: plat or web");
+            return;
+        }
+
+        Dialog dialog = args[0] as string == "web" ? new WebDialog() : new WindowsDialog();
         dialog.Action();
     }
 }
-
 

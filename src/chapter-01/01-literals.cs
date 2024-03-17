@@ -1,6 +1,6 @@
-public class Literals : IRunnable
+public class Literals : Runnable
 {
-    public void Run<T>(params T[] args)
+    public override void Run<T>(params T[] args)
     {
         uint ui = 5u;
         printWithType(ui);

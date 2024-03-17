@@ -1,8 +1,7 @@
-public class Operators : IRunnable
+public class Operators : Runnable
 {
-    public void Run<T>(params T[] args)
+    public override void Run<T>(params T[] args)
     {
         Console.WriteLine("Operators");
-
     }
 }
